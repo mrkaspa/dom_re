@@ -20,12 +20,12 @@ let toInt = s =>
 let calculate = _elem => {
   let quantity =
     getValue(Doc.getElementById("quantity", D.document))
-    ->Belt.Option.flatMap(_, toInt);
+    ->Option.flatMap(_, toInt);
 
   let unitPrice =
     getValue(Doc.getElementById("size", D.document))
-    ->Belt.Option.flatMap(_, Size.shirtSizeOfString)
-    ->Belt.Option.map(_, Size.price);
+    ->Option.flatMap(_, Size.shirtSizeOfString)
+    ->Option.map(_, Size.price);
 
   let totalPrice =
     switch (unitPrice, quantity) {
@@ -42,7 +42,7 @@ let calculate = _elem => {
   Js.log("Price = " ++ priceString);
 
   Doc.getElementById("price", D.document)
-  ->Belt.Option.map(_, Elem.setInnerText(_, priceString))
+  ->Option.map(_, Elem.setInnerText(_, priceString))
   |> ignore;
 };
 
