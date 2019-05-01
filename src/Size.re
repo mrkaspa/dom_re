@@ -3,6 +3,7 @@ type t =
   | M
   | L
   | XL;
+
 let shirtSizeOfString = s =>
   switch (s) {
   | "S" => Some(S)
